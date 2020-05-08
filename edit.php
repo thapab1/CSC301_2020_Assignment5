@@ -1,13 +1,13 @@
 <?php
-require_once('functions.php');
-require_once('json.php');
+require_once('includes/functions.php');
+require_once('includes/json.php');
 
-$apartments = jsonToArray('data.json');
+$apartments = jsonToArray('data/data.json');
 
 displayPageHeader('Edit Room Info');
 
 if(count($_POST) > 0){
-    modifyJSON('data.json',$_POST,$_GET[id]);
+    modifyJSON('data/data.json',$_POST,$_GET[id]);
     echo "Room is edited successfully. Come back to our <a href='index.php'>Home Page</a>.";
 } else {
     if(!isset($_GET['id'])){
@@ -20,6 +20,6 @@ if(count($_POST) > 0){
     }
         
     $id = $_GET['id'];
-    include('edit_template.php');
+    include('includes/edit_template.php');
 }
 displayPageFooter(); ?>
